@@ -11,7 +11,7 @@ const uploadRoutes_1 = __importDefault(require("./router/uploadRoutes"));
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use((0, cors_1.default)({ origin: process.env.API_BASE_URL }));
+app.use((0, cors_1.default)({ origin: "https://pdf-parser-sigma.vercel.app" }));
 app.use(loginRoutes_1.default, uploadRoutes_1.default);
 app.listen(process.env.PORT, () => {
     console.log(`STARTED SERVER ON PORT ${process.env.PORT}`);

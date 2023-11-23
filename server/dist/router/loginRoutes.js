@@ -10,7 +10,7 @@ const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 router.post("/api/v1/login", async (req, res) => {
     const { username, password } = await req.body;
-    if (username === process.env.USERNAME && password === process.env.PASSWORD) {
+    if (username === process.env.NEXT_PUBLIC_USERNAME && password === process.env.PASSWORD) {
         const token = jsonwebtoken_1.default.sign({ username: 'Blona' }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 });
         res.status(200).json(token);
     }
