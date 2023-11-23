@@ -12,7 +12,7 @@ const Login = () => {
     const handleSubmit = async(event: { preventDefault: () => void; }) => {
       event.preventDefault();
       try {
-          const res = await fetch(`${process.env.API_BASE_URL}/api/v1/login`, {
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/login`, {
               method: 'POST',
               headers: {
                   'Accept': 'application/json',
