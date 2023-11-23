@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
-import { validateToken, uploadFile, fetchUploadedFiles, deleteFile } from './indexRequests'; 
+import { validateToken, uploadFile, fetchUploadedFiles, deleteFile } from '../public/indexRequests'; 
 import styles from '../styles/home.module.css'
 
 
