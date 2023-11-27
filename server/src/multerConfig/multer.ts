@@ -2,9 +2,12 @@ import multer from 'multer'
 import path from 'path'
 import fs from 'fs'
 
+const uploadsPath = path.join(__dirname, 'uploads');
+
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './uploads');
+      cb(null, uploadsPath);
     },
     filename: function (req, file, cb) {
       if (!file.originalname) {
