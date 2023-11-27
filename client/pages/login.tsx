@@ -8,6 +8,8 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [invalidCredentials, setInvalidCredentials] = useState(false)
     const router = useRouter()
+
+    console.log(process.env.NEXT_PUBLIC_API_BASE_URL)
   
     const handleSubmit = async(event: { preventDefault: () => void; }) => {
       event.preventDefault();
