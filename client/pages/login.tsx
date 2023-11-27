@@ -13,6 +13,24 @@ const Login = () => {
   
     const handleSubmit = async(event: { preventDefault: () => void; }) => {
       event.preventDefault();
+      
+      //@ts-expect-error
+      const data = new URLSearchParams(new FormData(event.target))
+
+      let formUsername = "";
+      let formPassword = "";
+
+      if (username === "") {
+        formUsername = data.get("username")!
+      } else {
+        formUsername = username
+      }
+      if (password === "") {
+        formPassword = data.get("password")!
+      } else {
+        formPassword = password
+      }
+
       try {
           const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/login`, {
               method: 'POST',
@@ -21,8 +39,8 @@ const Login = () => {
                   'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                  username: username,
-                  password: password
+                  username: formUsername,
+                  password: formPassword
               })
           })
           if(res.ok){

@@ -6,14 +6,15 @@ import { config } from "dotenv";
 config()
 
 router.post("/api/v1/login", async(req, res) => {
+    
     const {username , password} = await req.body
-
+    console.log(username, password);
     if(username === process.env.USERNAME && password === process.env.PASSWORD){
         const token = jwt.sign({username:'Blona'}, process.env.ACCESS_TOKEN_SECRET! , {expiresIn: 3600})
-        res.status(200).json(token)
-    }else{
-        res.status(401)
+        return res.status(200).json(token)
     }
+
+    return res.status(401)
 })
 
 router.post("/api/v1/validate-token", (req, res) => {
